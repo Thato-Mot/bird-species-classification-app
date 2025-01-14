@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Species Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/test.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bird Species Classifier</h1>
+        
+        <div class="upload-section">
+            <form id="upload-form">
+                <div class="file-input">
+                    <input type="file" id="audioFile" accept=".wav,.mp3,.flac" required>
+                    <label for="audioFile">Choose Audio File</label>
+                </div>
+
+                <select id="model-select" required>
+                    <option value="" disabled selected>Select a model</option>
+                    <optgroup label="MobileNetV2 Models">
+                        <option value="ChromaMNV21">Chroma Model 1</option>
+                        <option value="ChromaMNV22">Chroma Model 2</option>
+                        <option value="CQTMNV23">CQT Model 1</option>
+                        <option value="CQTMNV24">CQT Model 2</option>
+                    </optgroup>
+                    <optgroup label="VGG-16 Models">
+                        <option value="ChromaVGG1">Chroma Model 1</option>
+                        <option value="ChromaVGG2">Chroma Model 2</option>
+                        <option value="CQTVGG3">CQT Model 1</option>
+                        <option value="CQTVGG4">CQT Model 2</option>
+                    </optgroup>
+                </select>
+
+                <button type="submit" id="classify-btn">Classify</button>
+            </form>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Processing audio...</p>
+        </div>
+
+        <div id="error-message" class="error hidden"></div>
+
+        <div id="results" class="hidden">
+            <div class="predictions-section">
+                <h2>Predictions</h2>
+                <div id="predictions-table"></div>
+            </div>
+
+            <div class="feature-selection">
+                <h3>View Features for Window</h3>
+                <div class="window-input">
+                    <input type="number" id="window-number" min="0" placeholder="Enter window number">
+                    <button id="view-features-btn">View Features</button>
+                </div>
+            </div>
+
+            <div id="features-display" class="hidden">
+                <h2>Feature Visualizations</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Mel Spectrogram</h3>
+                        <div class="feature-image" id="melspectrogram-image"></div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>CQT</h3>
+                        <div class="feature-image" id="cqt-image"></div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>MFCC</h3>
+                        <div class="feature-image" id="mfcc-image"></div>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Chroma</h3>
+                        <div class="feature-image" id="chroma-image"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/trial.js') }}"></script>
+</body>
+</html>

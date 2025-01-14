@@ -1,0 +1,45 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Default Dark Charcoal-Burgundy-White ----- Default*/
+  --background: rgb(84, 63, 53);
+  --background-gradient: rgb(30, 30, 30);
+  --text-color: rgb(255, 255, 255);
+  --text-color2: rgb(20, 20, 20);
+  --accent1: rgb(65, 96, 168);
+  --accent2: rgb(230, 76, 89);
+  --accent3: rgb(234, 25, 42);
+  --accent1-glow: rgb(242, 110, 121);
+  --cursor-gradient-start: rgba(65, 105, 225, 0.5); /* Light blue shade */
+  --cursor-gradient-end: rgba(65, 105, 225, 0.1); /* More transparent */
+  --navBar-angle: 90deg;
+  --glass-background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255,255,255, 0));
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  --glass-shadow: -0.5vw 0.5vw 1vw rgb(0, 0, 0);
+  --glass-background2: linear-gradient(135deg, rgba(255, 255, 255, 0.44), rgba(255,255,255, 0.4));
+
+
+  --border-glass-shadow: inset 0 0 10px rgba(0, 0, 0, 0.695);
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  /* background: linear-gradient(var(--background) 0%, var(--background) 60%, var(--background-gradient) 90%); */
+  background-color: var(--background);
+  background-image: url("https://www.transparenttextures.com/patterns/foggy-birds.png");
+  overflow-x: hidden;
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  background-attachment: fixed;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  scroll-behavior: smooth;
+}
